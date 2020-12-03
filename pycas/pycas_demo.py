@@ -4,7 +4,7 @@ import tornado.web
 class LoginHandler(tornado.web.RequestHandler):
     def get(self):
         casClient2 = cas.CASClientV2(service_url="http://127.0.0.1:8080/login", 
-                                     server_url="cas服务器认证地址")
+                                     server_url="cas服务器认证地址",verify_ssl_certificate=False)
         #获取ticket信息
         casTicket = self.get_argument("ticket", None)
         if casTicket is None:
